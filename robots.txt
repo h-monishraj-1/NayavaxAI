@@ -1,13 +1,13 @@
-# robots.txt for NayaVaxAI Solutions
-# https://nayavaxai-solutions.com/robots.txt
+# robots.txt for NayavaxAI
+# https://h-monishraj-1.github.io/NayavaxAI/robots.txt
 
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://nayavaxai-solutions.com/sitemap.xml
+Sitemap: https://h-monishraj-1.github.io/NayavaxAI/sitemap.xml
 
-# Specific instructions for major search engines
+# Crawl instructions for major search engines
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 1
@@ -20,21 +20,17 @@ User-agent: Slurp
 Allow: /
 Crawl-delay: 2
 
-# Block access to admin areas (if any)
+# Block access to admin or sensitive areas (not relevant for GitHub Pages, but safe)
 Disallow: /admin/
 Disallow: /private/
 Disallow: /temp/
 
-# Block access to specific file types
+# Block unnecessary file types (optional, you can remove if not needed)
 Disallow: /*.pdf$
 Disallow: /*.doc$
 Disallow: /*.docx$
 
-# Allow access to CSS and JS files for proper rendering
+# Always allow static assets (CSS, JS, images)
 Allow: /css/
 Allow: /js/
 Allow: /images/
-
-# Additional sitemap references
-Sitemap: https://nayavaxai-solutions.com/blog-sitemap.xml
-Sitemap: https://nayavaxai-solutions.com/services-sitemap.xml
