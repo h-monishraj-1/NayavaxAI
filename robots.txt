@@ -1,0 +1,40 @@
+# robots.txt for NayaVaxAI Solutions
+# https://nayavaxai-solutions.com/robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://nayavaxai-solutions.com/sitemap.xml
+
+# Specific instructions for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+# Block access to admin areas (if any)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+
+# Block access to specific file types
+Disallow: /*.pdf$
+Disallow: /*.doc$
+Disallow: /*.docx$
+
+# Allow access to CSS and JS files for proper rendering
+Allow: /css/
+Allow: /js/
+Allow: /images/
+
+# Additional sitemap references
+Sitemap: https://nayavaxai-solutions.com/blog-sitemap.xml
+Sitemap: https://nayavaxai-solutions.com/services-sitemap.xml

@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NayavaxAI Solutions - AI-Powered Business Tools & Analytics</title>
+    <meta name="description" content="Transform your business with NayavaxAI's AI-powered analytics dashboards, chatbots, and workflow automation. Get smarter business insights and boost productivity.">
+    <meta name="keywords" content="AI SaaS, AI business tools, AI analytics solutions, AI automation, AI for small businesses, AI chatbots, workflow automation tools">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="NayavaxAI Solutions - AI-Powered Business Tools">
+    <meta property="og:description" content="Transform your business with AI-powered analytics, chatbots, and workflow automation">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://NayavaxAI-solutions.com">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="NayavaxAI Solutions - AI-Powered Business Tools">
+    <meta name="twitter:description" content="Transform your business with AI-powered analytics, chatbots, and workflow automation">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #2563eb;
+            --primary-purple: #7c3aed;
+            --gradient-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-accent: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --border-color: #e5e7eb;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-blue);
+        }
+
+        .cta-btn {
+            background: var(--gradient-accent);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-bg);
+            color: var(--white);
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary-blue);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 1rem 2rem;
+            border: 2px solid var(--white);
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-blue);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 0;
+            background: var(--bg-light);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 6rem 0;
+            background: var(--white);
+        }
+
+        .testimonials-carousel {
+            display: flex;
+            overflow-x: auto;
+            gap: 2rem;
+            padding-bottom: 1rem;
+            scroll-snap-type: x mandatory;
+        }
+
+        .testimonial-card {
+            min-width: 350px;
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 12px;
+            scroll-snap-align: start;
+        }
+
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .testimonial-company {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* ROI Calculator */
+        .roi-calculator {
+            padding: 6rem 0;
+            background: var(--gradient-bg);
+            color: var(--white);
+        }
+
+        .calculator-form {
+            background: var(--white);
+            color: var(--text-dark);
+            padding: 2.5rem;
+            border-radius: 12px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .calculator-result {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .footer-section a {
+            color: #d1d5db;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-accent);
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.1);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 2rem;
+            text-align: center;
+            color: #9ca3af;
+        }
+
+        /* Page Sections */
+        .page-section {
+            padding: 4rem 0;
+        }
+
+        .page-hero {
+            background: var(--gradient-bg);
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .content-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .content-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .content-section h3 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            color: var(--text-dark);
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary-blue);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        /* Pricing Cards */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary-blue);
+            transform: scale(1.05);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .plan-price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .plan-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .blog-card {
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-image {
+            height: 200px;
+            background: var(--gradient-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .blog-excerpt {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .blog-meta {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .contact-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-light);
+            border-radius: 12px;
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        /* Sticky CTA */
+        .sticky-cta {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--gradient-accent);
+            color: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            box-shadow: var(--shadow-lg);
+            text-decoration: none;
+            font-weight: 600;
+            z-index: 1000;
+            transition: transform 0.3s;
+        }
+
+        .sticky-cta:hover {
+            transform: scale(1.1);
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-carousel {
+                padding: 0 1rem;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+
+            .pricing-card.featured:hover {
+                transform: translateY(-5px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero {
+                padding: 4rem 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Page-specific styles */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Share buttons */
+        .share-buttons {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .share-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 6px;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .share-btn:hover {
+            opacity: 0.8;
+        }
+
+        .share-linkedin {
+            background: #0077b5;
+        }
+
+        .share-twitter {
+            background: #1da1f2;
+        }
+
+        .share-facebook {
+            background: #1877f2;
+        }
+
+        /* Case study cards */
+        .case-studies {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .case-study {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--primary-purple);
+        }
+
+        .case-study-metric {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar container">
+            <div class="logo">NayavaxAI Solutions</div>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showPage('home')" class="active">Home</a></li>
+                <li><a href="#" onclick="showPage('about')">About</a></li>
+                <li><a href="#" onclick="showPage('services')">Services</a></li>
+                <li><a href="#" onclick="showPage('pricing')">Pricing</a></li>
+                <li><a href="#" onclick="showPage('blog')">Blog</a></li>
+                <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+            </ul>
+            <a href="#" class="cta-btn" onclick="showPage('pricing')">Get Started</a>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Sticky CTA -->
+    <a href="#" class="sticky-cta" onclick="showPage('pricing')">
+        <i class="fas fa-rocket"></i> Start Free Trial
+    </a>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Smarter Business Decisions with NayavaxAI Solutions</h1>
+                <p>AI-powered tools for analytics, automation, and growth that transform how your business operates</p>
+                <div class="hero-cta">
+                    <a href="#" class="btn-primary" onclick="showPage('pricing')">Get Started</a>
+                    <a href="#" class="btn-secondary" onclick="showPage('pricing')">View Pricing</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Transform Your Business with AI</h2>
+                    <p>Discover how our cutting-edge AI tools can revolutionize your workflow and drive unprecedented growth</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">📊</div>
+                        <h3>AI Analytics</h3>
+                        <p>Get real-time insights from your data with intelligent dashboards that reveal hidden patterns and opportunities for growth.</p>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">🤖</div>
+                        <h3>Smart Chatbots</h3>
+                        <p>Deploy AI-powered chatbots that understand context, provide instant support, and convert visitors into customers 24/7.</p>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Workflow Automation</h3>
+                        <p>Automate repetitive tasks and streamline processes to save hours every week while reducing human error.</p>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">💡</div>
+                        <h3>Business Insights</h3>
+                        <p>Make data-driven decisions with AI-generated reports that provide actionable insights and predictive analytics.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-title">
+                    <h2>What Our Clients Say</h2>
+                    <p>Join thousands of businesses that have transformed their operations with NayavaxAI</p>
+                </div>
+                <div class="testimonials-carousel">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            "NayavaxAI's analytics dashboard helped us identify $2M in cost savings within the first quarter. The insights are incredibly accurate and actionable."
+                        </div>
+                        <div class="testimonial-author">Sarah Johnson</div>
+                        <div class="testimonial-company">CEO, TechStart Inc.</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            "The AI chatbot reduced our customer service workload by 60% while improving response times. Our customers love the instant support."
+                        </div>
+                        <div class="testimonial-author">Michael Chen</div>
+                        <div class="testimonial-company">Operations Director, GrowthCorp</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            "Workflow automation has been a game-changer. We're processing 3x more orders with the same team size. ROI was achieved in just 2 months."
+                        </div>
+                        <div class="testimonial-author">Emily Rodriguez</div>
+                        <div class="testimonial-company">Founder, ScaleUp Solutions</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Studies -->
+        <section class="page-section" style="background: var(--bg-light);">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Success Stories</h2>
+                    <p>See how businesses like yours achieved remarkable results with NayavaxAI</p>
+                </div>
+                <div class="case-studies">
+                    <div class="case-study fade-in">
+                        <div class="case-study-metric">300%</div>
+                        <h3>Revenue Growth</h3>
+                        <p><strong>E-commerce Retailer</strong><br>Increased sales through AI-powered product recommendations and dynamic pricing optimization.</p>
+                    </div>
+                    <div class="case-study fade-in">
+                        <div class="case-study-metric">75%</div>
+                        <h3>Time Savings</h3>
+                        <p><strong>Manufacturing Company</strong><br>Reduced manual reporting time through automated data analysis and intelligent workflow management.</p>
+                    </div>
+                    <div class="case-study fade-in">
+                        <div class="case-study-metric">$1.5M</div>
+                        <h3>Cost Reduction</h3>
+                        <p><strong>Financial Services</strong><br>Eliminated inefficiencies and optimized operations through AI-driven process automation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ROI Calculator -->
+        <section class="roi-calculator">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Calculate Your AI ROI</h2>
+                    <p>Discover how much time and money you could save with NayavaxAI Solutions</p>
+                </div>
+                <div class="calculator-form">
+                    <h3>AI ROI Calculator</h3>
+                    <div class="form-group">
+                        <label for="employees">Number of Employees:</label>
+                        <input type="number" id="employees" placeholder="e.g., 25">
+                    </div>
+                    <div class="form-group">
+                        <label for="hours">Average Hours Spent on Manual Tasks per Week:</label>
+                        <input type="number" id="hours" placeholder="e.g., 20">
+                    </div>
+                    <div class="form-group">
+                        <label for="hourlyRate">Average Hourly Rate ($):</label>
+                        <input type="number" id="hourlyRate" placeholder="e.g., 50">
+                    </div>
+                    <button class="cta-btn" onclick="calculateROI()" style="width: 100%;">Calculate Savings</button>
+                    <div id="roiResult" class="calculator-result">
+                        <h4>Your Potential Savings</h4>
+                        <div id="savings"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- About Page -->
+    <div id="about" class="page">
+        <div class="page-hero">
+            <div class="container">
+                <h1>About NayavaxAI Solutions</h1>
+                <p>Democratizing AI tools for businesses of all sizes</p>
+            </div>
+        </div>
+        <div class="page-section">
+            <div class="container">
+                <div class="content-section">
+                    <h2>Our Mission</h2>
+                    <p>At NayavaxAI Solutions, we believe that artificial intelligence shouldn't be a luxury reserved for tech giants. Our mission is to democratize AI tools, making advanced analytics, automation, and insights accessible to small and medium-sized businesses worldwide.</p>
+                    
+                    <h2>Our Vision</h2>
+                    <p>We envision a future where every business, regardless of size or technical expertise, can leverage the power of AI to make smarter decisions, automate routine tasks, and unlock unprecedented growth opportunities. We're building the bridge between cutting-edge AI technology and practical business solutions.</p>
+                    
+                    <h2>Our Values</h2>
+                    <h3>Innovation</h3>
+                    <p>We continuously push the boundaries of what's possible with AI, developing solutions that are not just advanced, but practical and user-friendly.</p>
+                    
+                    <h3>Transparency</h3>
+                    <p>We believe in clear, honest communication about what our AI can and cannot do. No black boxes, no false promises - just transparent, explainable AI solutions.</p>
+                    
+                    <h3>Customer Success</h3>
+                    <p>Your success is our success. We're committed to providing not just tools, but ongoing support and guidance to help you maximize the value of AI in your business.</p>
+                    
+                    <h2>Why Choose NayavaxAI?</h2>
+                    <p>Founded by a team of AI researchers and business strategists, we understand both the technical capabilities of artificial intelligence and the real-world challenges businesses face. Our solutions are designed to deliver immediate value while scaling with your growth.</p>
+                    
+                    <p>With over 10,000 businesses already transforming their operations with our platform, NayavaxAI Solutions is the trusted partner for companies ready to embrace the future of work.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Page -->
+    <div id="services" class="page">
+        <div class="page-hero">
+            <div class="container">
+                <h1>Our AI-Powered Services</h1>
+                <p>Comprehensive solutions to transform your business operations</p>
+            </div>
+        </div>
+        <div class="page-section">
+            <div class="container">
+                <div class="services-grid">
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>AI Analytics Dashboards</h3>
+                        <p>Transform raw data into actionable insights with our intelligent analytics platform. Get real-time visualizations, predictive analytics, and automated reporting that helps you make data-driven decisions faster than ever.</p>
+                        <ul style="margin-top: 1rem; color: var(--text-light);">
+                            <li>• Real-time data visualization</li>
+                            <li>• Predictive analytics and forecasting</li>
+                            <li>• Automated report generation</li>
+                            <li>• Custom KPI tracking</li>
+                        </ul>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>AI Chatbots</h3>
+                        <p>Deploy intelligent chatbots that understand context, learn from interactions, and provide personalized customer support 24/7. Reduce response times while improving customer satisfaction.</p>
+                        <ul style="margin-top: 1rem; color: var(--text-light);">
+                            <li>• Natural language understanding</li>
+                            <li>• Multi-channel deployment</li>
+                            <li>• Lead qualification and conversion</li>
+                            <li>• Seamless human handoff</li>
+                        </ul>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Workflow Automation</h3>
+                        <p>Eliminate repetitive tasks and streamline your processes with intelligent automation. From document processing to email management, let AI handle routine work while you focus on strategy.</p>
+                        <ul style="margin-top: 1rem; color: var(--text-light);">
+                            <li>• Document processing and extraction</li>
+                            <li>• Email and communication automation</li>
+                            <li>• Task scheduling and routing</li>
+                            <li>• Integration with existing tools</li>
+                        </ul>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Custom AI Solutions</h3>
+                        <p>Need something specific? Our team of AI experts can develop custom solutions tailored to your unique business requirements and industry challenges.</p>
+                        <ul style="margin-top: 1rem; color: var(--text-light);">
+                            <li>• Industry-specific AI models</li>
+                            <li>• Custom integration development</li>
+                            <li>• Dedicated support and training</li>
+                            <li>• Scalable architecture design</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="#" class="cta-btn" onclick="showPage('contact')">Schedule a Free Demo</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pricing Page -->
+    <div id="pricing" class="page">
+        <div class="page-hero">
+            <div class="container">
+                <h1>Simple, Transparent Pricing</h1>
+                <p>Choose the plan that fits your business needs and scale as you grow</p>
+            </div>
+        </div>
+        <div class="page-section">
+            <div class="container">
+                <div class="pricing-grid">
+                    <div class="pricing-card fade-in">
+                        <div class="plan-name">Starter</div>
+                        <div class="plan-price">$49<span style="font-size: 1rem; font-weight: 400;">/month</span></div>
+                        <p>Perfect for small businesses getting started with AI</p>
+                        <ul class="plan-features">
+                            <li>✓ Basic AI Analytics Dashboard</li>
+                            <li>✓ 1 AI Chatbot</li>
+                            <li>✓ 5 Workflow Automations</li>
+                            <li>✓ Email Support</li>
+                            <li>✓ Up to 1,000 data points</li>
+                        </ul>
+                        <a href="#" class="cta-btn" style="width: 100%; text-align: center;">Subscribe Now</a>
+                    </div>
+                    <div class="pricing-card featured fade-in">
+                        <div class="plan-name">Business</div>
+                        <div class="plan-price">$149<span style="font-size: 1rem; font-weight: 400;">/month</span></div>
+                        <p>Most popular choice for growing companies</p>
+                        <ul class="plan-features">
+                            <li>✓ Advanced AI Analytics with Predictions</li>
+                            <li>✓ 3 AI Chatbots</li>
+                            <li>✓ 20 Workflow Automations</li>
+                            <li>✓ Priority Phone & Email Support</li>
+                            <li>✓ Up to 10,000 data points</li>
+                            <li>✓ API Access</li>
+                            <li>✓ Custom Integrations</li>
+                        </ul>
+                        <a href="#" class="cta-btn" style="width: 100%; text-align: center;">Subscribe Now</a>
+                    </div>
+                    <div class="pricing-card fade-in">
+                        <div class="plan-name">Enterprise</div>
+                        <div class="plan-price">$499<span style="font-size: 1rem; font-weight: 400;">/month</span></div>
+                        <p>For large organizations with complex needs</p>
+                        <ul class="plan-features">
+                            <li>✓ Full AI Analytics Suite</li>
+                            <li>✓ Unlimited AI Chatbots</li>
+                            <li>✓ Unlimited Workflow Automations</li>
+                            <li>✓ Dedicated Success Manager</li>
+                            <li>✓ Unlimited data points</li>
+                            <li>✓ Custom AI Model Development</li>
+                            <li>✓ White-label Options</li>
+                            <li>✓ SLA Guarantee</li>
+                        </ul>
+                        <a href="#" class="cta-btn" style="width: 100%; text-align: center;">Contact Sales</a>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 3rem;">
+                    <p style="color: var(--text-light); margin-bottom: 1rem;">All plans include a 14-day free trial. No credit card required.</p>
+                    <a href="#" class="btn-secondary" onclick="showPage('contact')">Have questions? Contact our sales team</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog Page -->
+    <div id="blog" class="page">
+        <div class="page-hero">
+            <div class="container">
+                <h1>AI Insights & Resources</h1>
+                <p>Stay updated with the latest trends in AI and business automation</p>
+            </div>
+        </div>
+        <div class="page-section">
+            <div class="container">
+                <div class="blog-grid">
+                    <article class="blog-card fade-in">
+                        <div class="blog-image">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div class="blog-content">
+                            <h3 class="blog-title">Top 5 Ways AI Is Transforming Small Businesses in 2025</h3>
+                            <div class="blog-meta">
+                                <i class="fas fa-calendar"></i> March 15, 2025 • 5 min read
+                            </div>
+                            <p class="blog-excerpt">Discover how small businesses are leveraging AI to compete with larger companies, reduce costs, and improve customer experiences. From automated customer service to predictive analytics...</p>
+                            <a href="#" class="read-more" onclick="showBlogPost('ai-transforming-small-business-2025')">Read More →</a>
+                            <div class="share-buttons" style="margin-top: 1rem;">
+                                <a href="#" class="share-btn share-linkedin"><i class="fab fa-linkedin"></i> Share</a>
+                                <a href="#" class="share-btn share-twitter"><i class="fab fa-twitter"></i> Tweet</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="blog-card fade-in">
+                        <div class="blog-image">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="blog-content">
+                            <h3 class="blog-title">The Future of SaaS: Why AI Tools Are Essential for Growth</h3>
+                            <div class="blog-meta">
+                                <i class="fas fa-calendar"></i> March 10, 2025 • 7 min read
+                            </div>
+                            <p class="blog-excerpt">As the SaaS industry evolves, AI integration is no longer optional. Learn why businesses that adopt AI tools now will have a significant competitive advantage in the coming years...</p>
+                            <a href="#" class="read-more" onclick="showBlogPost('future-saas-ai-tools')">Read More →</a>
+                            <div class="share-buttons" style="margin-top: 1rem;">
+                                <a href="#" class="share-btn share-linkedin"><i class="fab fa-linkedin"></i> Share</a>
+                                <a href="#" class="share-btn share-twitter"><i class="fab fa-twitter"></i> Tweet</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="blog-card fade-in">
+                        <div class="blog-image">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="blog-content">
+                            <h3 class="blog-title">AI Chatbots vs. Human Support – What Works Best?</h3>
+                            <div class="blog-meta">
+                                <i class="fas fa-calendar"></i> March 5, 2025 • 6 min read
+                            </div>
+                            <p class="blog-excerpt">Find the perfect balance between AI efficiency and human touch in customer support. This comprehensive guide covers when to use chatbots, when to escalate to humans, and how to create seamless experiences...</p>
+                            <a href="#" class="read-more" onclick="showBlogPost('chatbots-vs-human-support')">Read More →</a>
+                            <div class="share-buttons" style="margin-top: 1rem;">
+                                <a href="#" class="share-btn share-linkedin"><i class="fab fa-linkedin"></i> Share</a>
+                                <a href="#" class="share-btn share-twitter"><i class="fab fa-twitter"></i> Tweet</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Individual Blog Posts -->
+    <div id="blog-post-ai-transforming-small-business-2025" class="page">
+        <div class="page-hero">
+            <div class="container">
+                <h1>Top 5 Ways AI Is Transforming Small Businesses in 2025</h1>
+                <p>March 15, 2025 • 5 min read</p>
+            </div>
+        </div>
+        <div class="page-section">
+            <div class="container">
+                <div class="content-section">
+                    <p>Artificial Intelligence is no longer a futuristic concept reserved for tech giants. In 2025, small businesses across industries are leveraging AI to level the playing field, reduce operational costs, and deliver exceptional customer experiences. Here are the top five ways AI is transforming small businesses this year.</p>
+                    
+                    <h2>1. Automated Customer Service and Support</h2>
+                    <p>Small businesses are implementing AI chatbots to provide 24/7 customer support without the overhead of round-the-clock staff. These intelligent systems can handle up to 80% of common customer inquiries, from product questions to order status updates.</p>
+                    
+                    <h3>Key Benefits:</h3>
+                    <p>Reduced response times from hours to seconds, lower customer service costs, and improved customer satisfaction scores. Businesses report saving an average of 30 hours per week on customer support tasks.</p>
+                    
+                    <h2>2. Predictive Analytics for Inventory Management</h2>
+                    <p>AI-powered analytics help small businesses predict demand patterns, optimize inventory levels, and reduce waste. By analyzing historical sales data, seasonal trends, and market conditions, AI can forecast what products will be needed when.</p>
+                    
+                    <h3>Real-World Impact:</h3>
+                    <p>Small retailers are seeing 25-40% reductions in inventory carrying costs while maintaining 99% product availability. This translates to improved cash flow and customer satisfaction.</p>
+                    
+                    <h2>3. Personalized Marketing Campaigns</h2>
+                    <p>AI enables small businesses to compete with larger companies by delivering personalized marketing messages at scale. From email segmentation to social media targeting, AI helps businesses reach the right customers with the right message at the right time.</p>
+                    
+                    <h2>4. Financial Management and Fraud Detection</h2>
+                    <p>Small businesses are using AI for automated bookkeeping, expense categorization, and fraud detection. These tools help business owners make better financial decisions while reducing the risk of costly errors or fraudulent activities.</p>
+                    
+                    <h2>5. Process Automation and Workflow Optimization</h2>
+                    <p>From invoice processing to appointment scheduling, AI is automating repetitive tasks that previously consumed valuable time. Small businesses report saving 10-15 hours per week on administrative tasks.</p>
+                    
+                    <h2>Getting Started with AI</h2>
+                    <p>The key to successful AI adoption is starting small and scaling gradually. Focus on one area where AI can make an immediate impact, measure the results, and then expand to other areas of your business.</p>
+                    
+                    <p>Ready to transform your small business with AI? Our team at NayavaxAI Solutions specializes in helping small businesses implement AI tools that drive real results.</p>
+                    
+                    <div class="share-buttons">
+                        <a href="#" class="share-btn share-linkedin"><i class="fab fa-linkedin"></i> Share on LinkedIn</a>
+                        <a href="#" class="share-btn share-twitter"><i class="fab fa-twitter"></i> Share on Twitter</a>
+                        <a href="#" class="share-btn share-facebook"><i class="fab fa-facebook"></i> Share on Facebook</a>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 3rem;">
+                        <a href="#" class="cta-btn" onclick="showPage('blog')">← Back to Blog</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+        <div class="page-hero">
+            <div class="container">
+                <h1>Get In Touch</h1>
+                <p>Ready to transform your business with AI? Let's start the conversation.</p>
+            </div>
+        </div>
+        <div class="page-section">
+            <div class="container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email Us</h3>
+                        <p>hello@NayavaxAI-solutions.com</p>
+                        <p>support@NayavaxAI-solutions.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <h3>Call Us</h3>
+                        <p>+1 (555) 123-4567</p>
+                        <p>Monday - Friday, 9AM - 6PM EST</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Visit Us</h3>
+                        <p>123 AI Innovation Drive</p>
+                        <p>San Francisco, CA 94105</p>
+                    </div>
+                </div>
+                
+                <form class="contact-form">
+                    <h2 style="text-align: center; margin-bottom: 2rem;">Send us a message</h2>
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required placeholder="Tell us about your business needs and how we can help..."></textarea>
+                    </div>
+                    <button type="submit" class="cta-btn" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>NayavaxAI Solutions</h3>
+                    <p>Empowering businesses with intelligent AI solutions for analytics, automation, and growth.</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <a href="#" onclick="showPage('services')">AI Analytics Dashboards</a>
+                    <a href="#" onclick="showPage('services')">AI Chatbots</a>
+                    <a href="#" onclick="showPage('services')">Workflow Automation</a>
+                    <a href="#" onclick="showPage('services')">Custom AI Solutions</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <a href="#" onclick="showPage('about')">About Us</a>
+                    <a href="#" onclick="showPage('blog')">Blog</a>
+                    <a href="#" onclick="showPage('contact')">Contact</a>
+                    <a href="#">Careers</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <a href="#">Help Center</a>
+                    <a href="#">Documentation</a>
+                    <a href="#">API Reference</a>
+                    <a href="#">Status</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 NayavaxAI Solutions. All rights reserved. | <a href="#" style="color: inherit;">Privacy Policy</a> | <a href="#" style="color: inherit;">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Page Navigation
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update active nav link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            const activeLink = document.querySelector(`[onclick="showPage('${pageId}')"]`);
+            if (activeLink && activeLink.classList.contains('nav-links')) {
+                activeLink.classList.add('active');
+            }
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+            
+            // Update URL without page reload
+            history.pushState(null, null, `#${pageId}`);
+        }
+
+        function showBlogPost(postId) {
+            showPage(`blog-post-${postId}`);
+        }
+
+        // ROI Calculator
+        function calculateROI() {
+            const employees = parseInt(document.getElementById('employees').value) || 0;
+            const hours = parseInt(document.getElementById('hours').value) || 0;
+            const hourlyRate = parseInt(document.getElementById('hourlyRate').value) || 0;
+            
+            if (employees && hours && hourlyRate) {
+                const weeklySpend = employees * hours * hourlyRate;
+                const yearlySavings = weeklySpend * 52 * 0.6; // Assume 60% time savings
+                const monthlySavings = yearlySavings / 12;
+                const hoursSaved = employees * hours * 0.6 * 52;
+                
+                const resultDiv = document.getElementById('roiResult');
+                const savingsDiv = document.getElementById('savings');
+                
+                savingsDiv.innerHTML = `
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="text-align: center; padding: 1rem; background: var(--gradient-accent); color: white; border-radius: 8px;">
+                            <h4 style="margin: 0; font-size: 2rem;">${monthlySavings.toLocaleString()}</h4>
+                            <p style="margin: 0.5rem 0 0;">Monthly Savings</p>
+                        </div>
+                        <div style="text-align: center; padding: 1rem; background: var(--primary-purple); color: white; border-radius: 8px;">
+                            <h4 style="margin: 0; font-size: 2rem;">${Math.round(hoursSaved)}</h4>
+                            <p style="margin: 0.5rem 0 0;">Hours Saved/Year</p>
+                        </div>
+                    </div>
+                    <p style="text-align: center; color: var(--text-light);">
+                        Based on 60% automation efficiency. Actual results may vary.
+                    </p>
+                    <div style="text-align: center; margin-top: 1rem;">
+                        <a href="#" class="cta-btn" onclick="showPage('pricing')">Start Your Free Trial</a>
+                    </div>
+                `;
+                
+                resultDiv.style.display = 'block';
+            }
+        }
+
+        // Scroll animations
+        function handleScrollAnimations() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Event listeners
+        window.addEventListener('scroll', handleScrollAnimations);
+        window.addEventListener('load', handleScrollAnimations);
+
+        // Handle initial page load
+        window.addEventListener('load', function() {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                showPage(hash);
+            }
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Form submission
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We\'ll get back to you within 24 hours.');
+            this.reset();
+        });
+
+        // Initialize animations
+        handleScrollAnimations();
+    </script>
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "NayavaxAI Solutions",
+        "description": "AI-powered business tools for analytics, automation, and growth",
+        "url": "https://NayavaxAI-solutions.com",
+        "logo": "https://NayavaxAI-solutions.com/logo.png",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+1-555-123-4567",
+            "contactType": "customer service",
+            "email": "hello@NayavaxAI-solutions.com"
+        },
+        "sameAs": [
+            "https://linkedin.com/company/NayavaxAI-solutions",
+            "https://twitter.com/NayavaxAI"
+        ]
+    }
+    </script>
+</body>
+</html>
