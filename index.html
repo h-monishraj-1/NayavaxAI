@@ -123,6 +123,25 @@
             box-shadow: var(--shadow-lg);
         }
 
+        .cta-btn-header {
+            background: var(--gradient-accent);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-btn-header:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -656,6 +675,20 @@
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                padding: 1rem;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+                z-index: 1000;
+                text-align: center;
+            }
+
+            .nav-links.show {
+                display: flex;
             }
 
             .mobile-menu-btn {
@@ -669,6 +702,10 @@
             .hero-cta {
                 flex-direction: column;
                 align-items: center;
+            }
+
+            .cta-btn-header {
+                display: none;
             }
 
             .features-grid {
@@ -777,11 +814,19 @@
     </style>
 </head>
 <body>
+
     <!-- Header -->
     <header class="header">
         <nav class="navbar container">
             <div class="logo">NayavaxAI Solutions</div>
-            <ul class="nav-links">
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Nav Links -->
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#" onclick="showPage('home')" class="active">Home</a></li>
                 <li><a href="#" onclick="showPage('about')">About</a></li>
                 <li><a href="#" onclick="showPage('services')">Services</a></li>
@@ -789,10 +834,9 @@
                 <li><a href="#" onclick="showPage('blog')">Blog</a></li>
                 <li><a href="#" onclick="showPage('contact')">Contact</a></li>
             </ul>
-            <a href="#" class="cta-btn" onclick="showPage('pricing')">Get Started</a>
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
+
+            <!-- Call to Action Button -->
+            <a href="#" class="cta-btn-header" onclick="showPage('pricing')">Get Started</a>
         </nav>
     </header>
 
@@ -912,7 +956,7 @@
             <div class="container">
                 <div class="section-title">
                     <h2>Calculate Your AI ROI</h2>
-                    <p>Discover how much time and money you could save with NayavaxAI Solutions</p>
+                    <p style="color: white">Discover how much time and money you could save with NayavaxAI Solutions</p>
                 </div>
                 <div class="calculator-form">
                     <h3>AI ROI Calculator</h3>
@@ -1245,8 +1289,8 @@
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
                         <h3>Email Us</h3>
-                        <p>hello@NayavaxAI-solutions.com</p>
-                        <p>support@NayavaxAI-solutions.com</p>
+                        <p>hmonishraj@nayavax.ai.com</p>
+                        <p>support@nayavax.ai.com</p>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
@@ -1257,8 +1301,8 @@
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <h3>Visit Us</h3>
-                        <p>123 AI Innovation Drive</p>
-                        <p>San Francisco, CA 94105</p>
+                        <p>Vellore Institute of Technology (VIT), Chennai</p>
+                        <p>Vandalur-Kelambakkam Road, Chennai - 600127</p>
                     </div>
                 </div>
                 
@@ -1333,6 +1377,14 @@
     </footer>
 
     <script>
+
+        const menuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
         // Page Navigation
         function showPage(pageId) {
             // Hide all pages
