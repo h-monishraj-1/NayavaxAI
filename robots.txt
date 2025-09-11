@@ -1,36 +1,8 @@
 # robots.txt for NayavaxAI
-# https://h-monishraj-1.github.io/NayavaxAI/robots.txt
+# https://nayavaxai.netlify.app/robots.txt
 
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://h-monishraj-1.github.io/NayavaxAI/sitemap.xml
-
-# Crawl instructions for major search engines
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 1
-
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 1
-
-User-agent: Slurp
-Allow: /
-Crawl-delay: 2
-
-# Block access to admin or sensitive areas (not relevant for GitHub Pages, but safe)
-Disallow: /admin/
-Disallow: /private/
-Disallow: /temp/
-
-# Block unnecessary file types (optional, you can remove if not needed)
-Disallow: /*.pdf$
-Disallow: /*.doc$
-Disallow: /*.docx$
-
-# Always allow static assets (CSS, JS, images)
-Allow: /css/
-Allow: /js/
-Allow: /images/
+Sitemap: https://nayavaxai.netlify.app/sitemap.xml
